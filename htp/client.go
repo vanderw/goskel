@@ -11,9 +11,9 @@ var (
 )
 
 // TODO HTTP keep-alive enhancement
-func Request(method, url string, secs int, headers map[string]string, data io.Reader) (int, http.Header, []byte, error) {
+func Request(method, url string, timeoutSecs int, headers map[string]string, data io.Reader) (int, http.Header, []byte, error) {
 	c := http.Client{
-		Timeout: time.Duration(secs) * time.Second,
+		Timeout: time.Duration(timeoutSecs) * time.Second,
 	}
 	req, err := http.NewRequest(method, url, data)
 	if nil != err {
@@ -38,10 +38,10 @@ func Request(method, url string, secs int, headers map[string]string, data io.Re
 	return resp.StatusCode, resp.Header, bytes, nil
 }
 
-func Get(url string, secs int, headers map[string]string) (int, http.Header, []byte, error) {
-	return Request("GET", url, secs, headers, nil)
+func Get(url string, timeoutSecs int, headers map[string]string) (int, http.Header, []byte, error) {
+	return Request("GET", url, timeoutSecs, headers, nil)
 }
 
-func Post(url string, secs int, headers map[string]string, data io.Reader) (int, http.Header, []byte, error) {
-	return Request("POST", url, secs, headers, data)
+func Post(url string, timeoutSecs int, headers map[string]string, data io.Reader) (int, http.Header, []byte, error) {
+	return Request("POST", url, timeoutSecs, headers, data)
 }

@@ -19,7 +19,6 @@ type Server struct {
 func NewServer(name, addr string, cb ServerCallback) *Server {
 	gin.SetMode(gin.ReleaseMode)
 	r := gin.Default()
-	// r.Use(cors.Default())
 
 	if cb != nil {
 		if err := cb(r); err != nil {
