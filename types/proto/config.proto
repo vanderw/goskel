@@ -1,0 +1,35 @@
+syntax = "proto3";
+package proto;
+
+option go_package="./proto";
+
+// import "types/proto/base.proto";
+
+message Service {
+    string name = 1;
+    string host = 3;
+    int32 port = 4;
+    string username = 7;
+    string password = 8;
+    string db = 11;  // for redis/database
+}
+
+message Log {
+    string path = 1;
+    string file = 2;
+    string level = 3;
+    int32 max_age = 4;
+    int32 max_size = 8;
+    int32 max_backup = 9;
+    bool localtime = 15;
+    bool compress = 16;
+    bool console = 17;
+}
+
+message Api {
+    string name = 1;
+    string url = 2;
+    string token = 3;
+    string secret = 6;
+    string key = 7;
+}

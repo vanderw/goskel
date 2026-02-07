@@ -1,0 +1,32 @@
+syntax = "proto3";
+package proto;
+
+option go_package="./proto";
+
+enum ESTATUS {
+    DISABLED = 0;
+    ENABLED = 1;
+    DELETED = 2;
+}
+
+enum EGENDER {
+    FEMALE = 0;
+    MALE = 1;
+}
+
+enum EERROR_CODE {
+    OK = 0;
+    BAD_PARAMETERS = 2;
+    UNMATCHED = 3;
+}
+
+message EndPoint {
+    string host = 1;
+    int32 port = 2;
+}
+
+message UserAuth {
+    string username = 1;
+    string password = 2;
+}
+

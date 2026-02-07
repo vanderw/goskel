@@ -62,6 +62,7 @@ func newLogger(path, filename, level string, maxSize, maxAge, maxBackups int, lo
 }
 
 // mod only interface.
+// @maxSize: M @maxAge days @maxBackup fileNums
 func GetLogger(path, filename, level string, maxSize, maxAge, maxBackups int, localtime, compress bool) *zap.Logger {
 	return newLogger(path, filename, level, maxSize, maxAge, maxBackups, localtime, compress)
 }
