@@ -18,9 +18,9 @@ message Log {
     string path = 1;
     string file = 2;
     string level = 3;
-    int32 max_age = 4;
-    int32 max_size = 8;
-    int32 max_backup = 9;
+    int32 mage = 4;
+    int32 msize = 8;
+    int32 mbackup = 9;
     bool localtime = 15;
     bool compress = 16;
     bool console = 17;
@@ -32,4 +32,13 @@ message Api {
     string token = 3;
     string secret = 6;
     string key = 7;
+}
+
+message Tracer {
+    string name = 1;
+    string version = 2;
+    string protocol = 10;
+    string host = 11;
+    int32 port = 12;
+    bool enabled = 13;
 }
