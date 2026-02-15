@@ -24,6 +24,7 @@ message Log {
     bool localtime = 15;
     bool compress = 16;
     bool console = 17;
+    bool error= 18;// enable standalone 'error.log' filters ERROR level logs
 }
 
 message Api {
