@@ -17,20 +17,20 @@ func NewSyncMap[K comparable, V any]() *SyncMap[K, V] {
 	}
 }
 
-func (s *SyncMap[K, V]) Load(key K) (V, bool) {
+func (s *SyncMap[K, V]) Get(key K) (V, bool) {
 	s.RLock()
 	defer s.RUnlock()
 	val, ok := s.m[key]
 	return val, ok
 }
 
-func (s *SyncMap[K, V]) Store(key K, value V) {
+func (s *SyncMap[K, V]) Put(key K, value V) {
 	s.Lock()
 	defer s.Unlock()
 	s.m[key] = value
 }
 
-func (s *SyncMap[K, V]) Delete(key K) {
+func (s *SyncMap[K, V]) Del(key K) {
 	s.Lock()
 	defer s.Unlock()
 	delete(s.m, key)
